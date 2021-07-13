@@ -110,16 +110,25 @@ else if($error){?>
                                                             <th>N°</th>
                                                             <th>Nom</th>
                                                             <th>Prénom</th>
-                                                            <th>note</th>
-                                                            
+                                                            <th>Sexe</th>
+                                                            <th>Date</th>
+                                                            <th>Lieu</th>
+                                                            <th>Montant</th>
+                                                            <th>Filière</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                               
                                                     <tbody>
 <?php
 
-$module = $_GET['id'];
-$sql = " select etudiant.nom , etudiant.prenom, note.note , note.id FROM etudiant , note WHERE etudiant.id = note.etudiant_id AND note.module_id='$module'";
+
+$session=$_POST['session']; 
+$annee=$_POST['annee']; 
+
+$filiere = $_POST['filiere'];
+
+$sql = "SELECT etudiant.nom,etudiant.prenom,etudiant.sexe,etudiant.date,etudiant.lieu,etudiant.montant,etudiant.filiere from etudiant WHERE etudiant.annee='$annee' AND etudiant.session = '$session' AND etudiant.filiere = '$filiere' AND examen = 50000";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -132,29 +141,23 @@ foreach($results as $result)
  <td><?php echo htmlentities($cnt);?></td>
                                                             <td><?php echo htmlentities($result->nom);?></td>
                                                             <td><?php echo htmlentities($result->prenom);?></td>
-                                                            <td><?php echo htmlentities($result->note);?></td>
+                                                            <td><?php echo htmlentities($result->sexe);?></td>
+                                                            <td><?php echo htmlentities($result->date);?></td>
+                                                            <td><?php echo htmlentities($result->lieu);?></td>
+                                                            <td><?php echo htmlentities($result->montant);?></td>
+                                                            <td><?php echo htmlentities($result->filiere);?></td>
 
+<td>
+<a href="edit-student.php?stid=<?php echo htmlentities($result->StudentId);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> 
+    <a class="btn btn-info btn-edit-delete"
+                    href="../fpdf/page_document.php
+                    ?id_stagiaire=<?php echo $le_stagiaire['id'] ?>
+                    &annee_scolaire=<?php echo $annee_scolaire ?>"> 
+                    <span class="fa fa-print"></span>
+                </a>
 
-
-                                                            
-<td style = "text-align:center;">
-                            <?php 
-                        echo "<a href=\"modifier_note.php?id=".$result->id."&m=".$module."\" class=\"btn btn-warning\">Modifier</span>" ;
-                            ?>
-                            </td>
-
-                                 
-                            <td style = "text-align:center;"> 
-                            <?php 
-            
-    
-            echo "<a href=\"supprimer_note.php?id=".$result->id."&m=".$module."\" class=\"btn btn-danger\">Supprimer</span>" ;
-        
-        
-                            ?>
-                            </td>
-                                                            
-
+</td>                                                          
+</tr>
 
 <?php $cnt=$cnt+1;}} ?>
                                                        
@@ -169,7 +172,7 @@ foreach($results as $result)
                                     </div>
                                     <!-- /.col-md-6 -->
                                     <div>
-          <a href="note_one.php" class="btn btn-primary" style="margin-left:23px;">Ajouter une note</a>
+          <a href="ajouter.php" class="btn btn-primary" style="margin-left:23px;">Ajouter un nouveau étudiant</a>
         </div>               
                                                 </div>
                                                                

@@ -33,7 +33,7 @@
                                     <li class="has-children">
                                         <a href="#"><i class="fa fa-file-text"></i> <span>FORMATION</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                        <li><a href="liste.php"><i class="fa fa fa-server"></i> <span>Liste des Etudiants</span></a></li>
+                                        <li><a href="choix_liste.php"><i class="fa fa fa-server"></i> <span>Liste des Etudiants</span></a></li>
                                         <li class="has-children">
                                         <a href="#"><i class="fa fa-file-text"></i> <span>FORMATEUR</span> <i class="fa fa-angle-right arrow"></i></a>
                                             <ul class="child-nav">
@@ -61,6 +61,8 @@
                                         <li class="has-children">
                                         <a href="#"><i class="fa fa-file-text"></i> <span>NOTE</span> <i class="fa fa-angle-right arrow"></i></a>
                                             <ul class="child-nav">
+                                            <li><a href="consulter_note_one.php"><i class="fa fa fa-server"></i> <span>Consulter les notes</span></a></li>
+                                     
                                             <li><a href="note_one.php"><i class="fa fa fa-server"></i> <span>Enregistrer Note</span></a></li>
                                             <li><a href="#"><i class="fa fa fa-server"></i> <span>Modifier Note</span></a></li>
 
@@ -78,9 +80,9 @@
   <li class="has-children">
                                         <a href="#"><i class="fa fa-file-text"></i> <span>COMPTABILITE</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="#"><i class="fa fa-bars"></i> <span>Listes Inscrits</span></a></li>
-                                           <li><a href="#"><i class="fa fa-newspaper-o"></i> <span>Solde</span></a>
-                                            <li><a href="#"><i class="fa fa fa-server"></i> <span>Insolvable</span></a></li>
+                                            <li><a href="choix_liste_inscrit.php"><i class="fa fa-bars"></i> <span>Liste Inscrits</span></a></li>
+                                           <li><a href="choix_liste_solvable.php"><i class="fa fa-newspaper-o"></i> <span>Liste Solvable</span></a>
+                                            <li><a href="choix_liste_insolvable.php"><i class="fa fa fa-server"></i> <span>Liste Insolvable</span></a></li>
                                                 <li><a href="#"><i class="fa fa fa-server"></i> <span>Salaires</span></a></li>
                                            </li>
                                            <a href="#"><i class="fa fa-newspaper-o"></i> <span>Dépense </span></a>
@@ -94,7 +96,7 @@
    <li class="has-children">
                                         <a href="#"><i class="fa fa-users"></i> <span>ENREGISTREMENT</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="liste.php"><i class="fa fa fa-server"></i> <span>Liste Etudiant</span></a></li>
+                                            <li><a href="choix_liste.php"><i class="fa fa fa-server"></i> <span>Liste Etudiant</span></a></li>
                                            
                                         </ul>
                                     </li>

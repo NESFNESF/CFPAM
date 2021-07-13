@@ -120,7 +120,15 @@ else if($error){?>
                                                     </thead>
                                               
                                                     <tbody>
-<?php $sql = "SELECT etudiant.nom,etudiant.prenom,etudiant.sexe,etudiant.date,etudiant.lieu,etudiant.montant,etudiant.filiere from etudiant";
+<?php
+
+
+$session=$_POST['session']; 
+$annee=$_POST['annee']; 
+
+$filiere = $_POST['filiere'];
+
+$sql = "SELECT etudiant.nom,etudiant.prenom,etudiant.sexe,etudiant.date,etudiant.lieu,etudiant.montant,etudiant.filiere from etudiant WHERE etudiant.annee='$annee' AND etudiant.session = '$session' AND etudiant.filiere = '$filiere'";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

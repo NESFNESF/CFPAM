@@ -19,7 +19,7 @@ if(strlen($_SESSION['alogin'])=="")
             $note = $_POST['discipline'];
             $etudiant_id = $_POST['etudiant'];
             $module_id = $_POST['module'];
-            
+   /*         
     $sql="INSERT INTO  discipline(discipline,etudiant_id,module_id) VALUES(:discipline,:etudiant_id,:module_id)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':discipline',$note,PDO::PARAM_STR);
@@ -27,7 +27,7 @@ if(strlen($_SESSION['alogin'])=="")
     $query->bindParam(':module_id',$module_id,PDO::PARAM_STR);
     $query->execute();
 
-/*
+
 
 
       $note = $_POST['note'];
@@ -43,20 +43,21 @@ if(strlen($_SESSION['alogin'])=="")
 
 */
 
-
+ header("location:liste_discipline.php?id=".$module_id);
+ /*
         $lastInsertId = $dbh->lastInsertId();
         if($lastInsertId)
         {
         $msg="Etudiant enregistré avec success";
         
       
-        header("location:liste_discipline.php?id=".$module_id);
+       
         }
         else 
         {
         $error="Enregistrement echouer. S'il vous plaît essayer encore";
         }
-        
+  */       
         }
 
 
@@ -180,19 +181,7 @@ else if($error){?>
 
               <div class="row ">   
                  
-              <div class="form-group col-lg-6">
-                       <select id="discipline" name="discipline" required class="form-control" required>
-                            <option value="" selected >
-                                Année 
-                            </option>
-                            
-                  <option value="Exclusion" > Exclusion </option> 
-                  <option value="Avertissement" > Avertissement </option>
-                  <option value="Blame" >Blame</option>
-                  
-                            
-                        </select>
-                     </div>
+        
                
                      <div class="form-group col-lg-6" >
                         <div class="input-group" >
@@ -225,33 +214,7 @@ else if($error){?>
                        
                                 
              
-               <div class="form-group col-lg-6" >
-                        <div class="input-group" >
-                        <div class="input-group-addon"><i class="glyphicon glyphicon-book"></i></div>
-                          <select class="form-control"id="etudiant" name="etudiant" required>
-                            <option value="" selected>
-                                Etdiant
-                            </option>
-
-                              <?php
-                                      
-                                 
-                                      foreach ($data as $donne){
-                                      
-                                              
-                                                       ?>
-                                       <option value="<?php echo $donne['id'] ?>" ><?php echo $donne['nom']." ".$donne['prenom']; ?></option>
-                                     
-                                       
-                                          <?php
-
-                                                          
-                                             }?>
-                        </select>
-
-                        </div>  
-
-               </div> 
+          
 
 
 
